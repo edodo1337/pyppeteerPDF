@@ -1,0 +1,67 @@
+swagger: '2.0'
+info:
+  description: HTML to PDF
+  version: 1.0.0
+  title: Swagger
+  termsOfService: ''
+  contact:
+    email: ''
+  license:
+    name: ''
+    url: ''
+host: '127.0.0.1:5000'
+basePath: /
+paths:
+  '/api/':
+    get:
+      summary: ''
+      description: ''
+      operationId: HTMLtoPDF
+      produces:
+        - application/json
+      parameters:
+        - name: url
+          in: query
+          description: Page URL
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Done
+          schema:
+            $ref: '#/definitions/pageResponse200'
+        '400':
+          description: Incorrect URL
+          schema:
+            $ref: '#/definitions/pageResponse400'
+
+securityDefinitions:
+  petstore_auth:
+    type: oauth2
+    authorizationUrl: ''
+    flow: implicit
+    scopes:
+      'write:pets': ''
+      'read:pets': ''
+  api_key:
+    type: apiKey
+    name: api_key
+    in: header
+definitions:
+  PathPage:
+    type: string
+    properties:
+      path_page:
+        type: string
+  pageResponse200:
+    description: Page200response
+    required: true
+    content:
+      application/json:
+        description: Done
+  pageResponse400:
+    description: Page400response
+    required: true
+    content:
+      application/json:
+        description: Bad Request

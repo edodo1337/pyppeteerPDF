@@ -1,0 +1,93 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Sample",
+    "version": "1.0.0",
+    "title": "Swagger",
+    "termsOfService": "http://swagger.io/terms/",
+    "contact": {
+      "email": "apiteam@swagger.io"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "host": "127.0.0.1:5000",
+  "basePath": "/",
+  "paths": {
+    "/api/{path_page}": {
+      "get": {
+        "summary": "Get user by user name",
+        "description": "",
+        "operationId": "getUserByName",
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "path_page",
+            "in": "path",
+            "description": "Page URL",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Done",
+            "schema": {
+              "$ref": "#/definitions/pageResponse"
+            }
+          },
+          "400": {
+            "description": "Incorrect URL"
+          },
+          "404": {
+            "description": "Incorrect URL"
+          }
+        }
+      }
+    }
+  },
+  "securityDefinitions": {
+    "petstore_auth": {
+      "type": "oauth2",
+      "authorizationUrl": "",
+      "flow": "implicit",
+      "scopes": {
+        "write:pets": "modify pets in your account",
+        "read:pets": "read your pets"
+      }
+    },
+    "api_key": {
+      "type": "apiKey",
+      "name": "api_key",
+      "in": "header"
+    }
+  },
+  "definitions": {
+    "PathPage": {
+      "type": "string",
+      "properties": {
+        "path_page": {
+          "type": "string"
+        }
+      }
+    },
+      "pageResponse": {
+      "description": "Page200response",
+      "required": true,
+        "content": {
+          "application/json": {
+            "description": "Done"
+          }
+        }
+      }
+
+
+
+
+  }
+}

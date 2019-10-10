@@ -1,0 +1,5 @@
+flask==1.1.1
+pyppeteer==0.0.25
+asyncio==3.4.3
+flask_swagger_ui==3.20.9
+flask_restplus==0.13.0
